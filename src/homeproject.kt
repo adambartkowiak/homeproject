@@ -1,22 +1,20 @@
 import org.khronos.webgl.WebGLRenderingContext
 import org.w3c.dom.HTMLCanvasElement
+import org.w3c.dom.svg.SVGPatternElement
 import kotlin.browser.*
 
 fun main(args: Array<String>) {
     val message = "Hello JavaScript!"
     println(message)
 
-    setBodyBackground()
     setButtons()
     modifyText()
-    zoomUp()
+//    zoomUp()
 //    zoomDown()
-
 
 
 //    start()
 }
-
 
 
 fun setButtons() {
@@ -39,14 +37,17 @@ var zoom: Double = 0.0
 
 fun zoomDown() {
     zoom -= 0.2
+
+    val svgCanvas = document.getElementById("svg_canvas")
+    svgCanvas?.setAttribute("transform", "scale(1.0)")
 }
 
 fun zoomUp() {
     zoom += 0.2
-}
 
-fun setBodyBackground() {
-    document.body?.style?.background = "#f3f3f3 url('res/bg.png')"
+    val svgCanvas = document.getElementById("svg_canvas")
+    svgCanvas?.setAttribute("transform", "scale(50)")
+
 }
 
 private fun modifyText() {

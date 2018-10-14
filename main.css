@@ -2,3 +2,7 @@ html,
 body {
     height: 100%;
 }
+
+#main_grid {
+    height: 100%;
+}
